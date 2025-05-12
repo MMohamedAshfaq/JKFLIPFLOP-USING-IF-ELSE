@@ -1,3 +1,5 @@
+Name:M.Mohamed Ashfaq
+Reg no:212224240090
 # JKFLIPFLOP-USING-IF-ELSE
 
 **AIM:** 
@@ -33,16 +35,31 @@ By using three variable K-Map, we can get the simplified expression for next sta
 The maximum possible groupings of adjacent ones are already shown in the figure. Therefore, the simplified expression for next state Qt+1t+1 is Q(t+1)=JQ(t)′+K′Q(t)Q(t+1)=JQ(t)′+K′Q(t)
 
 **Procedure**
-
+Implementing JK_flipflop in Verilog HDL (Hardware Description Language) involves translating the simplified Boolean expressions into Verilog code to describe the behavior of digital circuits. The basic building blocks in Verilog is module. The module represent a combinational circuit. Use logical operators (&, |, ~, ^) to implement Boolean functions directly. Use built-in gate primitives for basic functions. Use University program VWF to verify the functionality of your Verilog modules. Create waveform and check outputs against expected results.
 /* write all the steps invloved */
 
 **PROGRAM**
+~~~
+module jk(j,k,q,qb,clk);
+input j,k,clk;
+output reg q;
+output qb;
 
+always @(posedge(clk))
+begin
+   q=(j & (~q))| ((~k)&q);
+end
+assign qb=~q;
+endmodule
+~~~
 /* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
 */
 
 **RTL LOGIC FOR FLIPFLOPS**
+![rtl](https://github.com/user-attachments/assets/09d7280d-c7c6-4c73-a9c9-93881a892053)
 
 **TIMING DIGRAMS FOR FLIP FLOPS**
+![timing](https://github.com/user-attachments/assets/796bf866-cea3-4625-83d2-71d457e81489)
 
-**RESULTS**
+**RESULTS**:
+Implemented JK flipflop using verilog and validating their functionality using their functional tables
